@@ -31,8 +31,8 @@ namespace Shit_Crossy_Road
             collisionBox = new Rectangle(Convert.ToInt32(position.X) + 4 * Game1.self.GLOBALMULTIPLIER, Convert.ToInt32(position.Y) + 3 * Game1.self.GLOBALMULTIPLIER, 12 * Game1.self.GLOBALMULTIPLIER, 13 * Game1.self.GLOBALMULTIPLIER);
         }
 
-        public Rectangle goLeft = new Rectangle(0, Game1.self.GAMEWINDOWHEIGHT/2 + 100, 400, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
-        public Rectangle goRight = new Rectangle(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - 400, Game1.self.GAMEWINDOWHEIGHT / 2 + 100, 400, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
+        public Rectangle goLeft = new Rectangle(0, Game1.self.GAMEWINDOWHEIGHT - 200, 200, 200);
+        public Rectangle goRight = new Rectangle(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - 200, Game1.self.GAMEWINDOWHEIGHT - 200, 200, 200);
         public Rectangle goBack = new Rectangle(400, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 150, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - 800, 150);
 
         public static KeyboardState keyboard = Keyboard.GetState();
@@ -147,12 +147,14 @@ namespace Shit_Crossy_Road
 
         public void Draw () {
             //Game1.self._spriteBatch.Draw(Game1.self._blankTexture, collisionBox, Color.Orange);
-            //Game1.self._spriteBatch.Draw(Game1.self._blankTexture, goBack, Color.Green);
+            // Game1.self._spriteBatch.Draw(Game1.self._blankTexture, goBack, Color.Green);
             //Game1.self._spriteBatch.Draw(Game1.self._blankTexture, goRight, Color.Red);
             //Game1.self._spriteBatch.Draw(Game1.self._blankTexture, goLeft , Color.Red);
+            Game1.self._spriteBatch.Draw(Game1.self._arrow, new Vector2(goRight.X, goRight.Y), new Rectangle(0, 0, 400, 400), Color.White, 0, Vector2.Zero, 0.5f, SpriteEffects.None, 0.1f);
+            Game1.self._spriteBatch.Draw(Game1.self._arrow, new Vector2(goLeft.X, goLeft.Y), new Rectangle(0, 0, 400, 400), Color.White, 0, Vector2.Zero, 0.5f, SpriteEffects.FlipHorizontally, 0.1f); 
             Game1.self._spriteBatch.Draw(Game1.self.spriteSheet, position, texture, Color.White, 0f, new Vector2(0, 0), Game1.self.GLOBALMULTIPLIER, SpriteEffects.None, 0f);
             if (gameState == GameState.Gaming) {
-                Game1.self._spriteBatch.DrawString(Game1.self._font, Convert.ToString(score), new Vector2(20, position.Y - 100), Color.White);
+                Game1.self._spriteBatch.DrawString(Game1.self._font, Convert.ToString(score), new Vector2(20, 100), Color.White);
             }
         }
 

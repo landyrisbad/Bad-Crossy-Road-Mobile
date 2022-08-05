@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "TS1ZzyhEMZ/Dd8bFCCv0hi4RuH2zajLDMeJfihK4sQalUGt6qN4OZEP6UwNuE8Ey4UxF/BQc0fcllouOFggvcg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\dej97\\Documents\\1Coding\\C#\\Monogame\\Github ig\\Bad-Crossy-Road-Mobile\\Shit Crossy Road.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dej97\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
+    "C:\\Users\\dej97\\.nuget\\packages\\monogame.framework.android\\3.8.0.1641\\monogame.framework.android.3.8.0.1641.nupkg.sha512"
+  ],
+  "logs": []
+}

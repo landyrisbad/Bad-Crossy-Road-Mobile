@@ -1,0 +1,54 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\dej97\\Documents\\1Coding\\C#\\Monogame\\Github ig\\Bad-Crossy-Road-Mobile\\Shit Crossy Road.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\dej97\\Documents\\1Coding\\C#\\Monogame\\Github ig\\Bad-Crossy-Road-Mobile\\Shit Crossy Road.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dej97\\Documents\\1Coding\\C#\\Monogame\\Github ig\\Bad-Crossy-Road-Mobile\\Shit Crossy Road.csproj",
+        "projectName": "Shit Crossy Road",
+        "projectPath": "C:\\Users\\dej97\\Documents\\1Coding\\C#\\Monogame\\Github ig\\Bad-Crossy-Road-Mobile\\Shit Crossy Road.csproj",
+        "packagesPath": "C:\\Users\\dej97\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dej97\\Documents\\1Coding\\C#\\Monogame\\Github ig\\Bad-Crossy-Road-Mobile\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dej97\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "monoandroid11.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "monoandroid11.0": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "monoandroid11.0": {
+          "dependencies": {
+            "MonoGame.Content.Builder.Task": {
+              "target": "Package",
+              "version": "[3.8.0.1641, )"
+            },
+            "MonoGame.Framework.Android": {
+              "target": "Package",
+              "version": "[3.8.0.1641, )"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -24,12 +24,24 @@ namespace Shit_Crossy_Road
         public Texture2D spriteSheet;
         public SpriteFont _font;
         public SpriteFont _smallFont;
+        public Texture2D _arrow;
 
         public Player player;
 
         public int ticks = 0;
 
         Grid grid;
+
+        GUI mainMenu;
+
+        public void Begin()
+        {
+            player.xPos = Game1.self.GAMEWINDOWWIDTH / 2;
+            player.yPos = 560;
+            player.gameState = Player.GameState.Gaming;
+            Background.StartGenerate();
+            player.score = 0;
+        }
 
         public Game1()
         {
@@ -58,6 +70,14 @@ namespace Shit_Crossy_Road
 
             player = new Player(200, 380);
 
+            _font = Content.Load<SpriteFont>("Font");
+
+            #region GUI
+            mainMenu = new GUI(GraphicsDevice);
+            new Button(mainMenu, GAMEWINDOWWIDTH / 2 - 250, GAMEWINDOWHEIGHT / 2 - 50, 500, 100, "Play", 0.5f, Begin, Color.White, Color.Black, _font);
+            new Text(mainMenu, GAMEWINDOWWIDTH / 2 - 250, GAMEWINDOWHEIGHT / 4 - 50, 500, 100, "Crossy Road but Worse", 0.8f, Color.Black, Color.White, _font);
+            #endregion
+
             base.Initialize();
         }
 
@@ -68,10 +88,10 @@ namespace Shit_Crossy_Road
             _blankTexture = new Texture2D(GraphicsDevice, 1, 1);
             _blankTexture.SetData(new Color[] { Color.White });
 
-            _font = Content.Load<SpriteFont>("Font");
             _smallFont = Content.Load<SpriteFont>("smallfont");
 
             spriteSheet = Content.Load<Texture2D>("spritesheet");
+            _arrow = Content.Load<Texture2D>("Untitled");
 
         }
 
@@ -84,8 +104,6 @@ namespace Shit_Crossy_Road
                 Road.Addthings();
                 Cars.Update();
                 player.Update();
-            } else if (player.gameState == Player.GameState.Menu) {
-                MainMenu.UseButtons();
             } 
 
             ticks++;
@@ -102,13 +120,16 @@ namespace Shit_Crossy_Road
             if (player.gameState == Player.GameState.Gaming) {
                 Background.Draw();
                 Cars.Draw();
+                player.Draw();
             }
             //grid.Draw();
              else if (player.gameState == Player.GameState.Menu) {
-                MainMenu.Draw();
+                if (player.score != 0)
+                {
+                    _spriteBatch.DrawString(_smallFont, "Your score was " + System.Convert.ToString(player.score), new Vector2(GAMEWINDOWWIDTH / 2 - _smallFont.MeasureString("Your score was " + System.Convert.ToString(player.score)).X / 2, GAMEWINDOWHEIGHT / 2 + 200), Color.White);
+                }
+                mainMenu.Draw(_spriteBatch);
             }
-
-            player.Draw();
 
             _spriteBatch.End();
 

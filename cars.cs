@@ -84,9 +84,9 @@ namespace Shit_Crossy_Road
         public static void Draw () {
             foreach (Cars car in carDrawList) {
                 if (car.speed < 0) {
-                    Game1.self._spriteBatch.Draw(Game1.self.spriteSheet, car.position, car.texture, Color.White, 0f, new Vector2(0, 0), Game1.self.GLOBALMULTIPLIER, SpriteEffects.None, 0f);
+                    Game1.self._spriteBatch.Draw(Game1.self.spriteSheet, car.position, car.texture, Color.White, 0f, new Vector2(0, 0), Game1.self.GLOBALMULTIPLIER, SpriteEffects.None, 1f);
                 } else {
-                    Game1.self._spriteBatch.Draw(Game1.self.spriteSheet, car.position, car.texture, Color.White, 0f, new Vector2(0, 0), Game1.self.GLOBALMULTIPLIER, SpriteEffects.FlipHorizontally, 0f);
+                    Game1.self._spriteBatch.Draw(Game1.self.spriteSheet, car.position, car.texture, Color.White, 0f, new Vector2(0, 0), Game1.self.GLOBALMULTIPLIER, SpriteEffects.FlipHorizontally, 1f);
                 }
             }
         }

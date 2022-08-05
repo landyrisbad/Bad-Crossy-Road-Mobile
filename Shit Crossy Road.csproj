@@ -62,6 +62,10 @@
     <Compile Include="background.cs" />
     <Compile Include="button.cs" />
     <Compile Include="cars.cs" />
+    <Compile Include="Monogame-GUI-main\button.cs" />
+    <Compile Include="Monogame-GUI-main\gui.cs" />
+    <Compile Include="Monogame-GUI-main\GUIObject.cs" />
+    <Compile Include="Monogame-GUI-main\text.cs" />
     <Compile Include="scale.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="grid.cs" />
