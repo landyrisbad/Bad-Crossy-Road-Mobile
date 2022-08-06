@@ -35,13 +35,29 @@ namespace Shit_Crossy_Road
         public Rectangle goRight = new Rectangle(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - 200, Game1.self.GAMEWINDOWHEIGHT - 200, 200, 200);
         public Rectangle goBack = new Rectangle(400, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height - 150, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - 800, 150);
 
-        public static KeyboardState keyboard = Keyboard.GetState();
-        public KeyboardState prevKeyboard = keyboard;
         TouchCollection touch = TouchPanel.GetState();
         TouchCollection pastTouch = TouchPanel.GetState();
 
+        public string DeathMessage;
+
         int move = Game1.self.GLOBALMULTIPLIER * 20;
 
+        string[] CarDeaths = new string[5] { 
+            "You were hit by a car",
+            "You didn't cross the road fast enough",
+            "A car didn't stop in time",
+            "You got squashed",
+            "You are no longer a complete chicken"
+        };
+        string[] WaterDeaths = new string[3] {
+            "Chickens cant swim!",
+            "You are meant to step on a log not off it",
+            "You fell in a river"
+        };
+        string[] EdgeDeaths = new string[2] {
+            "Turns out the earth is flat, \nand you just fell off it",
+            "You went to Narnia"
+        };
 
         public enum GameState {
             Gaming,
@@ -93,7 +109,6 @@ namespace Shit_Crossy_Road
             }
 
             pastTouch = touch;
-            prevKeyboard = keyboard;
         }
 
         void Interact () {
@@ -101,7 +116,7 @@ namespace Shit_Crossy_Road
             
             foreach (Cars car in Cars.carCollisionList) {
                 if (collisionBox.Intersects(car.collisionBox)) {
-                    Reset();
+                    Reset("car");
                     break;
                 }
             }
@@ -116,12 +131,12 @@ namespace Shit_Crossy_Road
                 die = false;
             }
             if (die) {
-                Reset();
+                Reset("log");
             }
             if (position.X > Game1.self.GAMEWINDOWWIDTH) {
-                Reset();
-            } else if (position.Y < 0) {
-                Reset();
+                Reset("edge");
+            } else if (position.X < 0) {
+                Reset("edge");
             }
 
         }
@@ -138,7 +153,7 @@ namespace Shit_Crossy_Road
                             dead = true;
                         }
                     } if (dead) {
-                        Reset();
+                        Reset("log");
                         break;
                     }
                 }
@@ -158,10 +173,24 @@ namespace Shit_Crossy_Road
             }
         }
 
-        public void Reset(bool checkMenu = true) {
+        public void Reset(string deathType, bool checkMenu = true) {
+
+            var random = new Random();
+            if (deathType == "car")
+            {
+                DeathMessage = CarDeaths[random.Next(0, CarDeaths.Length)];
+            }
+            if (deathType == "log")
+            {
+                DeathMessage = WaterDeaths[random.Next(0, WaterDeaths.Length)];
+            }
+            if (deathType == "edge")
+            {
+                DeathMessage = EdgeDeaths[random.Next(0, EdgeDeaths.Length)];
+            }
 
             xPos = 200;
-            yPos = 380;
+            yPos = 560;
             
             Background.backgrounds.Clear();
             Background.roads.Clear();
@@ -183,6 +212,8 @@ namespace Shit_Crossy_Road
             } else {
                 gameState = GameState.Menu;
             }
+
+            Background.StartGenerate();
         }
 
     }

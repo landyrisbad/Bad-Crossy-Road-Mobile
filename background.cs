@@ -50,8 +50,8 @@ namespace Shit_Crossy_Road
                 }
             }
             new Scenery(480);
-            new Scenery(560);
-            new Scenery(Game1.self.player.yPos + Game1.self.GLOBALMULTIPLIER*20);
+            new Scenery(Game1.self.player.yPos);
+            new Scenery(Game1.self.player.yPos + Game1.self.GLOBALMULTIPLIER * 20);
         }
         public static void InGameGenerate() {
             int toGenerate = random.Next(7);
