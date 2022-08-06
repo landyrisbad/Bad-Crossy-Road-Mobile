@@ -1,3 +1,0 @@
-int drawable icon 0x7f010000
-int drawable icon2 0x7f010001
-int string app_name 0x7f020000
